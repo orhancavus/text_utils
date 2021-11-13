@@ -8,7 +8,7 @@ import sys
 from fpdf import FPDF
 
 def text_file_to_pdf(filename):
-	"""Reads a text filename and writes to PDF with CourierNewBold TTF font  """
+	"""Reads 'filename' and writes to PDF with 'CourierNewBold TTF' font  """
 	# save FPDF() class into
 	# a variable pdf
 	pdf = FPDF()
@@ -16,14 +16,16 @@ def text_file_to_pdf(filename):
 	# Add a page
 	pdf.add_page()
 
+	# macos true type font directory, for other OS sould be changed
+	courier_ttf=r"/Library/Fonts/Courier New Bold.ttf"
+
 	# set style and size of font
-	# macos true type font directory
-	pdf.add_font('CourierNewBold', '', r"/Library/Fonts/Courier New Bold.ttf", uni=True)
+	pdf.add_font('CourierNewBold', '', courier_ttf, uni = True)
 	pdf.set_font("CourierNewBold", size = 12)
 
 	with open(filename, 'r') as f:
 		for x in f:
-			# remove carriage return right
+			# remove carriage return from the end of the line 
 			text_line = x.rstrip()
 			# TODO if line length greater than XX wrap string ..
 			pdf.cell(200, 10, txt = text_line, ln = 1, align = 'L')		
