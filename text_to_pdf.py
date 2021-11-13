@@ -8,7 +8,7 @@ import sys
 from fpdf import FPDF
 
 def text_file_to_pdf(filename):
-	"""Reads a text filename(with extention txt) and writes to PDF with CourierNewBold TTF font  """
+	"""Reads a text filename and writes to PDF with CourierNewBold TTF font  """
 	# save FPDF() class into
 	# a variable pdf
 	pdf = FPDF()
@@ -17,6 +17,7 @@ def text_file_to_pdf(filename):
 	pdf.add_page()
 
 	# set style and size of font
+	# macos true type font directory
 	pdf.add_font('CourierNewBold', '', r"/Library/Fonts/Courier New Bold.ttf", uni=True)
 	pdf.set_font("CourierNewBold", size = 12)
 
@@ -40,7 +41,7 @@ def text_file_to_pdf(filename):
 	return fname
 
 if __name__ == '__main__':
-	"""Accepts first parameter as .txt file and convert to .pdf  """
+	"""Text file to .pdf  """
 	argcount = len(sys.argv)
 	if argcount > 1:
 		filename = sys.argv[1]
