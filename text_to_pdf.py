@@ -1,5 +1,5 @@
 """ 
-	Utility package to convert txt file or string to PDF 
+	Utility app to convert txt file to PDF using fpdf library
 	Author  : Orhan Çavuş
 	Twitter : @orhanrcavus
 	Date    : 13.11.2021
