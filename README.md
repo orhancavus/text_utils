@@ -27,8 +27,34 @@
 
 ### Test
 
+[Calmcode.io - pytest](https://calmcode.io/pytest/introduction.html)
+
     ```bash
     pytest test_text_to_pdf.py
     pytest --verbose
     pytest --verbose .\test_text_to_pdf.py::test_text_to_pdf
+
+    python setup.py develop
+
+    pytest
+    ```
+
+### Package test
+
+    ```bash
+    ❯ python
+    Python 3.10.4 | packaged by conda-forge | (main, Mar 30 2022, 08:38:02) [MSC v.1916 64 bit (AMD64)] on win32
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> from text_utils.text_to_pdf import text_file_to_pdf
+    >>> text_file_to_pdf("README.md")
+    'README.pdf'
+    >>>
+
+    >>> help(text_file_to_pdf)
+    Help on function text_file_to_pdf in module text_utils.text_to_pdf:
+
+    text_file_to_pdf(filename)
+        Reads 'filename' and writes to PDF with 'CourierNewBold TTF' font
+
+    >>>
     ```

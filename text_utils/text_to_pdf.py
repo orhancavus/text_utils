@@ -25,9 +25,8 @@ def text_file_to_pdf(filename):
 	elif system_name == "Windows":
 		# windows true type fonts dir
 		courier_ttf=r"C:\Windows\Fonts\Courbd.ttf"
-		#courier_ttf=r"C:\Windows\Fonts\Cour.ttf"
 	else:
-		raise Exception("Linux Not implemented ..")
+		raise Exception("Linux version not implemented ..")
 
 	# set style and size of font
 	pdf.add_font('CourierNewBold', '', courier_ttf, uni = True)
