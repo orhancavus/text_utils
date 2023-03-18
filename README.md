@@ -8,7 +8,7 @@
 
 ## text_to_pdf.py - Utility app to convert text file to PDF using fpdf library
 
-    requires : pip install fpdf  
+    requires : pip install -r requirements.txt 
     link     : https://pypi.org/project/fpdf/ 
 
 ### Macos true type font directory, for other OSes sould be changed
@@ -33,6 +33,7 @@
     pytest test_text_to_pdf.py
     pytest --verbose
     pytest --verbose .\test_text_to_pdf.py::test_text_to_pdf
+    pytest -vv tests/test_text_to_pdf.py::test_text_to_list
 
     python setup.py develop
 

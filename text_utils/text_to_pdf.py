@@ -9,6 +9,25 @@ import sys
 import platform
 from fpdf import FPDF
 
+def text_as_list(text, chars_per_line = 70):
+    text_len = len(text)
+    result = []    
+    if text_len > chars_per_line :
+        lines = text_len // chars_per_line
+
+        for i in range(lines):
+            from_index = i * chars_per_line
+            to_index = (i+1) * chars_per_line
+            result.append(text[from_index:to_index])
+
+        last_pos = (text_len - lines * chars_per_line)
+        if last_pos > 0: 
+            result.append(text[to_index:])
+    else:
+        result.append(text)
+        
+    return result
+
 def text_file_to_pdf(filename):
 	"""Reads 'filename' and writes to PDF with 'CourierNewBold TTF' font  """
 	# save FPDF() class into
@@ -35,9 +54,10 @@ def text_file_to_pdf(filename):
 	with open(filename, 'r', encoding="utf-8") as f:
 		for x in f:
 			# remove carriage return from the end of the line 
-			text_line = x.rstrip()
-			# TODO if line length greater than XX wrap string ..
-			pdf.cell(200, 5, txt = text_line, ln = 1, align = 'L')		
+			# text_line = x.rstrip()
+			text_line_list = text_as_list(x.rstrip())
+			for text_line in text_line_list:
+				pdf.cell(200, 5, txt = text_line, ln = 1, align = 'L')		
 
 	# save the pdf with name .pdf
 	dot_pos = filename.rfind('.')
@@ -57,4 +77,4 @@ if __name__ == '__main__':
 		fname = text_file_to_pdf(filename)
 		print(f'Text file to pdf conversion : {fname}')		
 	elif argcount == 1:
-		print("usage: python text_to_pdf.py file.txt")
+		print("\nusage: python text_to_pdf.py file.txt")
