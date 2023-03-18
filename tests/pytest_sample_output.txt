@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.10.4, pytest-7.2.2, pluggy-1.0.0 -- /Users/orhancavus/opt/anaconda3/envs/home_env/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/orhancavus/Development/Python/projects/my_git/my_utils
+plugins: anyio-3.6.1
+collecting ... collected 6 items
+
+tests/test_text_to_pdf.py::test_text_to_pdf PASSED                       [ 16%]
+tests/test_text_to_pdf.py::test_with_params_text_pdf[Sample_file.txt-Sample_file.pdf] PASSED [ 33%]
+tests/test_text_to_pdf.py::test_linux_error_is_raised PASSED             [ 50%]
+tests/test_text_to_pdf.py::test_text_to_list_multi PASSED                [ 66%]
+tests/test_text_to_pdf.py::test_text_to_list_single PASSED               [ 83%]
+tests/test_text_to_pdf.py::test_text_to_list_empty PASSED                [100%]
+
+============================== 6 passed in 0.27s ===============================

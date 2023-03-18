@@ -84,12 +84,20 @@ def text_file_to_pdf(filename):
     # return pdf file name
     return fname
 
-if __name__ == '__main__':
-    """Text file to .pdf  """
+def main():
+    """
+    Converts a text file to a PDF file.
+
+    Usage:
+    - python text_to_pdf.py <file.txt>
+    """
     argcount = len(sys.argv)
-    if argcount > 1:
+    if argcount == 2:
         filename = sys.argv[1]
-        fname = text_file_to_pdf(filename)
-        print(f'Text file to pdf conversion : {fname}')		
-    elif argcount == 1:
-        print("\nusage: python text_to_pdf.py file.txt")
+        pdf_name = text_file_to_pdf(filename)
+        print(f'Text file "{filename}" converted to PDF: "{pdf_name}"')
+    else:
+        print("\nUsage: python text_to_pdf.py <file.txt>")
+        
+if __name__ == '__main__':
+    main()
